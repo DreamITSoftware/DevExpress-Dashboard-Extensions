@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+    var mobileDashboardCallbacks = {
+        stateChanged: null,
+        dashboardChanged: null,
+        onDashboardChanged: function(e) {
+            window.onDashboardChanged(e);
+            mobileDashboardCallbacks.dashboardChanged(e);
+        },
+        onStateChanged: function(e) {
+            mobileDashboardCallbacks.stateChanged(e);
+        }
+    }
+
+    function getDashboardControl() {
+        return ASPNETCoreDashboard;
+    }
+    window.onload = function() {
+        if (window.parent !== window && !DevExpress.devices.current().phone) {
+            DevExpress.devices.current("genericPhone");
+        }
+    }
+</script>
+
+<div class="demo-content" style="top:0;">
+    @(Html.DevExpress().Dashboard("ASPNETCoreDashboard")
+                    .WorkingMode(DevExpress.DashboardWeb.WorkingMode.ViewerOnly)
+                    .Width("100%")
+                    .Height("100%")
+                    .Extensions(extensions => {
+                        extensions.UrlState(urlState => {
+                            urlState.IncludeDashboardIdToUrl(true);
+                            urlState.IncludeDashboardStateToUrl(true);
+                        });
+                        extensions.ViewerApi(viewerApi => {
+                            viewerApi.OnDashboardTitleToolbarUpdated("onDashboardTitleToolbarUpdated");
+                            
+                        });
+                    })
+                    .UseNeutralFilterMode(true)
+                    .OnBeforeRender("onBeforeRender")
+                    .OnDashboardInitializing("mobileDashboardCallbacks.onDashboardChanged")                    
+                    .OnDashboardStateChanged("mobileDashboardCallbacks.onStateChanged")
+    )
+</div>
+
+@Html.Partial("~/Views/Shared/_Scripts.cshtml")

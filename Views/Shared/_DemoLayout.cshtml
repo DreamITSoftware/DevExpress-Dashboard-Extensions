@@ -1,0 +1,65 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="demo-header">
+    <div class="demo-title">
+        <span>DevExpress Dashboard</span><span id="working-mode-title"></span>
+    </div>
+    <div class="demo-toolbar demo-toolbar-button">
+        <div id="designer-mode-button">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
+            <style type="text/css">
+                .editDashboardIcon {
+                    fill: #FFFFFF;
+                }
+</style>
+            <g>
+            <path class="editDashboardIcon" d="M25.5,5.5C23.3,3.3,20.3,2,17,2C10.5,2,5.3,7.1,5,13.5C6,13.2,7,13,8,13c5,0,9,4,9,9c0,1.4-0.3,2.8-0.9,4
+		                                        c0.3,0,0.6,0,0.9,0c6.6,0,12-5.4,12-12H17L25.5,5.5z" />
+
+            <path class="editDashboardIcon" d="M32,13c0-3.3-1.3-6.3-3.5-8.5L20,13H32z" />
+
+            <path class="editDashboardIcon" d="M8,14c-4.4,0-8,3.6-8,8s3.6,8,8,8s8-3.6,8-8S12.4,14,8,14z M13.7,24H9.3l1.7-5l-4.2,5H2.3
+		                                        C2.1,23.4,2,22.7,2,22c0-3.3,2.7-6,6-6s6,2.7,6,6C14,22.7,13.9,23.4,13.7,24z" />
+
+                </g>
+            </svg>
+            <span id="designer-mode-button-text">
+                Edit in Designer
+            </span>
+        </div>
+        <div class="demo-device-switch">
+            <a id="desktop-button" href="~/" onclick="dxDemo.Navigation.navigate(this.href)" class="dx-state-selected">
+                Desktop
+            </a><a id="mobile-button" href="~/Emulator" onclick="dxDemo.Navigation.navigate(this.href)">
+                Mobile
+            </a>
+        </div>
+        <div id="info-button">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+            <style type="text/css">
+                .st0 {
+                    fill: #FFFFFF;
+                }
+</style>
+            <path class="st0" d="M12,0C5.4,0,0,5.4,0,12c0,6.6,5.4,12,12,12s12-5.4,12-12C24,5.4,18.6,0,12,0z M13.5,11c-0.3,0.8-0.6,1.5-0.9,2
+	                L12,14.4c-0.5,1.1-0.7,1.8-0.7,2.3c0,0.3,0.2,0.5,0.5,0.5c0.3,0,0.5,0,0.7-0.1c0.2-0.1,0.3-0.1,0.3-0.1c0.2,0,0.3,0.1,0.3,0.4
+	                c0,0.3-0.1,0.6-0.4,1c-0.4,0.5-1,0.7-1.7,0.7c-0.8,0-1.4-0.3-1.7-1C9.1,17.8,9,17.5,9,17.2c0-0.3,0.1-0.7,0.2-1.1
+	                c0.1-0.4,0.3-0.8,0.4-1.3c0.2-0.4,0.4-0.9,0.6-1.4l0.6-1.3c0.4-1,0.6-1.6,0.6-2c0-0.3,0-0.5-0.1-0.6c-0.1-0.1-0.1-0.2-0.2-0.2
+	                l-0.2-0.1c-0.1,0-0.1-0.1-0.1-0.3c0-0.1,0-0.2,0.1-0.4c0.1-0.1,0.2-0.2,0.4-0.3C11.6,8.1,12,8,12.4,8C13.5,8,14,8.3,14,8.8
+	                C14,9.4,13.8,10.2,13.5,11z M14.9,5.9c-0.1,0.2-0.2,0.4-0.3,0.6c-0.1,0.2-0.3,0.3-0.5,0.4C13.8,6.9,13.7,7,13.5,7
+	                c-0.2,0-0.4,0-0.6-0.1c-0.2-0.1-0.3-0.2-0.5-0.4c-0.3-0.3-0.4-0.7-0.4-1c0-0.3,0.1-0.6,0.2-0.8c0.1-0.2,0.2-0.3,0.4-0.4
+	                C12.9,4.1,13.2,4,13.5,4c0.3,0,0.5,0,0.6,0.1c0.2,0,0.3,0.1,0.4,0.2C14.8,4.5,15,4.8,15,5.1C15,5.4,15,5.7,14.9,5.9z" />
+
+
+
+                </svg>
+        </div>
+    </div>
+</div>
+<div class="demo-content">
+    @RenderBody()
+</div>

@@ -1,0 +1,19 @@
+﻿<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+<script type="text/javascript" src="https://cdn3.devexpress.com/jslib/18.1.5/js/dx.all.js"></script>
+
+<script>
+    function emulatorLoaded(emulator) {
+        emulator.contentWindow.mobileDashboardCallbacks.dashboardChanged = function(e) { dxDemo.Navigation.saveToUrl("dashboardId", e.dashboardId) };
+        emulator.contentWindow.mobileDashboardCallbacks.stateChanged = function(e) { dxDemo.Navigation.saveToUrl("dashboardState", e.stateString) };
+        window.getDashboardControl = function() {
+            return emulator.contentWindow.getDashboardControl();
+        };
+
+    }
+</script>
+<div class="phone-wrapper">
+    <iframe id="emulator" src="~/MobileDashboard?@Context.Request.QueryString" onload="emulatorLoaded(this)"></iframe>
+</div>
